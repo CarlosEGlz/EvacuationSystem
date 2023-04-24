@@ -1,6 +1,4 @@
 #pragma
-#include <map>
-#include <vector>
 
 class House
 {
@@ -32,5 +30,5 @@ public:
     int getOccupants();
     int getNumOfCars();
 
-    void print();
+    void print(int, int);
 };
