@@ -1,9 +1,8 @@
 #include <iostream>
-#include <string>
 #include <fstream>
+#include <vector>
 #include <unordered_map>
 #include <map>
-#include <vector>
 #include <iterator>
 #include "House.cpp"
 using std::cout;
@@ -101,7 +100,7 @@ void printClass(House *houses) /*Calls the class print function to print all mem
     for (size_t i = 0; i < NUM_OF_HOUSES; i++)
     {
         cout << "House #" << i + 1 << '\n';
-        houses[i].print();
+        houses[i].print(TIME, i);
     }
 }
 
