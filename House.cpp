@@ -1,10 +1,8 @@
 #include "House.h"
-#include <fstream>
-#include <iostream>
-#include <map>
-#include <vector>
+
 using std::cout;
 using std::multimap;
+std::ofstream output("outputFile.txt");
 
 House::House()
 {
@@ -65,11 +63,11 @@ void House::traversedRoadSection(int NUM_OF_HOUSES, int TIME)
         }
     }
 
-    cout << "\tRoad\tSetion\n";
-    for (int i = 0; i < TIME; i++)
-    {
-        cout << '\t' << roadVect[i] << '\t' << sectVect[i] << '\n';
-    }
+    // cout << "\tRoad\tSetion\n";
+    // for (int i = 0; i < TIME; i++)
+    //{
+    //     cout << '\t' << roadVect[i] << '\t' << sectVect[i] << '\n';
+    // }
 
     // for (int i = 0; i <= TIME; i++)
     //{
@@ -121,10 +119,16 @@ int House::getNumOfCars()
     return number_of_cars;
 }
 
-void House::print()
+void House::print(int TIME, int houseNum)
 {
-    multimap<int, int>::iterator itr;
-    std::cout << "(Road, Section): (" << road << ", " << section << ")\n";
+
+    // multimap<int, int>::iterator itr;
+    cout << "House #" << houseNum + 1 << '\n';
+    cout << "(Road, Section): (" << road << ", " << section << ")\n";
+
+    output << "House #" << houseNum + 1 << '\n';
+    output << "(Road, Section): (" << road << ", " << section << ")\n";
+
     // std::cout << "Number of Occupants in House: " << number_occupants << '\n';
     // std::cout << "Number of Cars in house: " << number_of_cars << '\n';
     // cout << "Traversed road Map\n";
@@ -133,5 +137,16 @@ void House::print()
     //     cout << '\t' << itr->first << '\t' << itr->second
     //          << '\n';
     // }
-    std::cout << "--------------------------------\n";
+
+    cout << "Time\tRoad\tSetion\n";
+    output << "Time\tRoad\tSetion\n";
+
+    for (int i = 0; i < TIME; i++)
+    {
+
+        cout << i + 1 << ")\t" << roadVect[i] << '\t' << sectVect[i] << '\n';
+        output << i + 1 << ")\t\t" << roadVect[i] << "\t\t" << sectVect[i] << '\n';
+    }
+    cout << "--------------------------------\n";
+    output << "--------------------------------\n";
 }
